@@ -8,6 +8,9 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <ProductItem productName="IPhone X" unitPrice="40,500"/>
+        <ProductItem productName="IPAD Pro 10.5" unitPrice="30,500"/>
+        <ProductItem productName="IPAD Mini 4" unitPrice="19,500"/>
         <Footer company="Codewiz" email="codewiz@codewiz.com"/>
       </div>
     );
