@@ -7,7 +7,6 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount')
     this.timerID = setInterval(() => this.tick(), 1000)
   }
 
@@ -24,8 +23,27 @@ class Header extends Component {
   }
 
   render() {
+    const style = {
+      height: 70,
+    }
+
     return (
-      <h1>{this.state.date.toLocaleString()}</h1>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-8 text-left">
+            <h1 className="text-success">
+              <img style={style} src="/images/logo/logo.png" alt="" />
+              Healthy Cafe
+            </h1>
+          </div>
+          <div className="col-md-4 text-right">
+            <h5 className="text-muted mt-4">
+              {this.state.date.toLocaleString()}
+            </h5>
+          </div>
+        </div>
+        <hr />
+      </div>
     )
   }
 }
