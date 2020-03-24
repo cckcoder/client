@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 
 class Calulator extends Component {
+
   showOrders(orders) {
     if (!orders || orders.length == 0) {
       return <li className="text-right text-muted title">No orders</li>;
     } else {
       return orders.map(order => (
         <li className="text-right text-success title">
-          {order.product.productName} x {order.product.quantity} ={" "}
+          {order.product.productName} x {order.product.quantity} = {" "}
           {order.product.unitPrice * order.product.quantity}
           <button className="btn btn-light btn-sm">X</button>
         </li>

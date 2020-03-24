@@ -5,10 +5,13 @@ import ProductList from "../product/ProductList";
 class Monitor extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       totalPrice: 0,
       orders: []
     };
+
+    this.addOrder = this.addOrder.bind(this);
   }
 
   addOrder(product) {
@@ -26,9 +29,10 @@ class Monitor extends Component {
     }
 
     const totalPrice = this.state.totalPrice + parseInt(product.unitPrice);
+
     this.setState({
       totalPrice: totalPrice,
-      orders: orders
+      orders: this.state.orders
     });
   }
 
@@ -37,7 +41,10 @@ class Monitor extends Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-9">
-            <ProductList products={this.props.products} onAddOrder={this.addOrder}></ProductList>
+            <ProductList
+              products={this.props.products}
+              onAddOrder={this.addOrder}
+            ></ProductList>
           </div>
           <div className="col-md-3">
             <Calulator
