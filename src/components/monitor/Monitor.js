@@ -12,11 +12,12 @@ class Monitor extends Component {
     };
 
     this.addOrder = this.addOrder.bind(this);
+    this.delOrder = this.delOrder.bind(this);
   }
 
   addOrder(product) {
     let findOrder = this.state.orders.find(
-      order => order.product.productId === product.productId
+      order => order.product.productId == product.productId
     );
 
     if (findOrder) {
@@ -36,6 +37,24 @@ class Monitor extends Component {
     });
   }
 
+  delOrder(product) {
+    let findOrder = this.state.orders.find(
+      order => order.product.productId == product.productId
+    );
+
+    let resultOrder = this.state.orders.filter(
+      order => order.product.productId != product.productId
+    );
+
+    const totalPrice =
+      this.state.totalPrice -
+      findOrder.quantity * parseInt(findOrder.product.unitPrice);
+
+    this.setState({
+      totalPrice: totalPrice,
+      orders: resultOrder
+    });
+  }
 
   render() {
     return (
@@ -51,6 +70,7 @@ class Monitor extends Component {
             <Calulator
               totalPrice={this.state.totalPrice}
               orders={this.state.orders}
+              onDeleteOrder={this.delOrder}
             />
           </div>
         </div>
