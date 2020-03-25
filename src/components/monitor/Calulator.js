@@ -7,11 +7,6 @@ class Calulator extends Component {
     } else {
       return orders.map(order => (
         <li className="text-right text-success title">
-<<<<<<< HEAD
-          {order.product.productName} x {order.quantity} = {" "}
-          {order.product.unitPrice * order.quantity}
-          <button className="btn btn-light btn-sm">X</button>
-=======
           {order.product.productName} x {order.quantity} ={" "}
           {order.product.unitPrice * order.quantity}
           <button
@@ -20,7 +15,6 @@ class Calulator extends Component {
           >
             X
           </button>
->>>>>>> b6b36a6efd071eb725283d296247c9a0f9bbb081
         </li>
       ));
     }
