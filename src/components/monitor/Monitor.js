@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Calulator from "./Calulator";
 import ProductList from "../product/ProductList";
+import axios from "axios";
 
 class Monitor extends Component {
   constructor(props) {
@@ -8,11 +9,15 @@ class Monitor extends Component {
 
     this.state = {
       totalPrice: 0,
-      orders: []
+      orders: [],
+      confirm: false,
+      msg: ""
     };
 
     this.addOrder = this.addOrder.bind(this);
     this.delOrder = this.delOrder.bind(this);
+    this.cancelOrder = this.cancelOrder.bind(this);
+    this.confirmOrder = this.confirmOrder.bind(this);
   }
 
   addOrder(product) {
@@ -25,7 +30,8 @@ class Monitor extends Component {
     } else {
       this.state.orders.push({
         product: product,
-        quantity: 1
+        quantity: 1,
+        confirm: false
       });
     }
 
@@ -52,13 +58,57 @@ class Monitor extends Component {
 
     this.setState({
       totalPrice: totalPrice,
-      orders: resultOrder
+      orders: resultOrder,
+      confirm: false
     });
+  }
+
+  cancelOrder() {
+    this.setState({
+      totalPrice: 0,
+      orders: [],
+      confirm: false,
+      msg: ""
+    });
+  }
+
+  confirmOrder() {
+    const { totalPrice, orders } = this.state;
+    if (orders && orders.length > 0) {
+      axios
+        .post("http://localhost:3001/orders", {
+          orderedDate: new Date(),
+          totalPrice,
+          orders
+        })
+        .then(res => {
+          this.cancelOrder();
+          this.setState({
+            totalPrice: 0,
+            orders: [],
+            confirm: true,
+            msg: "Order was recorded"
+          });
+        });
+    } else {
+      this.setState({
+        totalPrice: 0,
+        orders: [],
+        confirm: true,
+        msg: "Please select order"
+      });
+    }
   }
 
   render() {
     return (
       <div className="container-fluid">
+        {this.state.confirm && (
+          <div className="alert alert-secondary title text-right">
+            {this.state.msg}
+          </div>
+        )}
+
         <div className="row">
           <div className="col-md-9">
             <ProductList
@@ -71,6 +121,8 @@ class Monitor extends Component {
               totalPrice={this.state.totalPrice}
               orders={this.state.orders}
               onDeleteOrder={this.delOrder}
+              onCancelOrder={this.cancelOrder}
+              onConfirmOrder={this.confirmOrder}
             />
           </div>
         </div>
