@@ -8,8 +8,8 @@ class Calulator extends Component {
     } else {
       return orders.map(order => (
         <li className="text-right text-success title">
-          {order.product.productName} x {order.product.quantity} = {" "}
-          {order.product.unitPrice * order.product.quantity}
+          {order.product.productName} x {order.quantity} = {" "}
+          {order.product.unitPrice * order.quantity}
           <button className="btn btn-light btn-sm">X</button>
         </li>
       ));

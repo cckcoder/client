@@ -16,7 +16,7 @@ class Monitor extends Component {
 
   addOrder(product) {
     let findOrder = this.state.orders.find(
-      order => order.product.productId == product.productId
+      order => order.product.productId === product.productId
     );
 
     if (findOrder) {
@@ -35,6 +35,7 @@ class Monitor extends Component {
       orders: this.state.orders
     });
   }
+
 
   render() {
     return (

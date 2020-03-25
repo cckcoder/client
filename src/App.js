@@ -2,7 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Monitor from "./components/monitor/Monitor"
+import Monitor from "./components/monitor/Monitor";
 
 class App extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Monitor products={this.state.products}/>
+        <Monitor products={this.state.products} />
         <Footer company="Codewiz" email="codewiz@codewiz.com" />
       </div>
     );

@@ -10,10 +10,6 @@ class Header extends Component {
     this.timerID = setInterval(() => this.tick(), 1000)
   }
 
-  componentDidUpdate() {
-    console.log(this.timerID)
-  }
-
   componentWillUnmount() {
     clearInterval(this.timerID)
   }
