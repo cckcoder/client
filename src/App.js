@@ -1,30 +1,19 @@
 import "./App.css";
 import React, { Component } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Monitor from "./components/monitor/Monitor";
-import axios from "axios";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./containers/Home";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { products: "" };
-  }
-
-  componentDidMount() {
-    axios.get("http://localhost:3001/products").then(res => {
-      this.setState({ products: res.data });
-    });
+  renderRouter() {
+    return (
+      <Switch>
+        <Route path="/" component={Home} />
+      </Switch>
+    );
   }
 
   render() {
-    return (
-      <div>
-        <Header />
-        <Monitor products={this.state.products} />
-        <Footer company="Codewiz" email="codewiz@codewiz.com" />
-      </div>
-    );
+    return <BrowserRouter>{this.renderRouter()}</BrowserRouter>;
   }
 }
 
