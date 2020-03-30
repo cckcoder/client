@@ -1,12 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "productName": "สลัดผัก",
-      "unitPrice": "120",
-      "thumbnail": "/images/product/1.jpg"
-    },
-    {
       "id": 2,
       "productName": "ไก่ทอด",
       "unitPrice": "90",

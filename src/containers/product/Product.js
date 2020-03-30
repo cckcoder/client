@@ -19,7 +19,7 @@ class Product extends Component {
 
   delProduct(product) {
     console.log(product)
-    axios.delete("http://localhost:3001/products/" + product.productId).then(res => {
+    axios.delete("http://localhost:3001/products/" + product.id).then(res => {
       axios.get("http://localhost:3001/products").then(res => {
         this.setState({
           products: res.data
