@@ -5,6 +5,7 @@ import Home from "./containers/Home";
 import About from "./containers/About";
 import Order from "./containers/order/Order";
 import Product from "./containers/product/Product";
+import NotFound from "./containers/error/NotFound";
 
 class App extends Component {
   renderRouter() {
@@ -14,6 +15,8 @@ class App extends Component {
         <Route exact path="/about" component={About} />
         <Route exact path="/order" component={Order} />
         <Route exact path="/products" component={Product} />
+
+        <Route component={NotFound} />
       </Switch>
     );
   }

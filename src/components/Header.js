@@ -1,27 +1,28 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
-    super(props)
-    this.state = {date: new Date()}
+    super(props);
+    this.state = { date: new Date() };
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000)
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerID)
+    clearInterval(this.timerID);
   }
 
   tick() {
-    this.setState({date: new Date()})
+    this.setState({ date: new Date() });
   }
 
   render() {
     const style = {
-      height: 70,
-    }
+      height: 70
+    };
 
     return (
       <div className="container-fluid">
@@ -36,11 +37,28 @@ class Header extends Component {
             <h5 className="text-muted mt-4">
               {this.state.date.toLocaleString()}
             </h5>
+            <ul className="list-inline">
+              <li className="list-inline-item title">
+                <Link className="text-success" to="/">Home</Link>
+              </li>
+              <li className="list-inline-item title">|</li>
+              <li className="list-inline-item title">
+                <Link className="text-success" to="/order">Order</Link>
+              </li>
+              <li className="list-inline-item title">|</li>
+              <li className="list-inline-item title">
+                <Link className="text-success" to="/products">Product</Link>
+              </li>
+              <li className="list-inline-item title">|</li>
+              <li className="list-inline-item title">
+                <Link className="text-success" to="/about">About</Link>
+              </li>
+            </ul>
           </div>
         </div>
         <hr />
       </div>
-    )
+    );
   }
 }
 
