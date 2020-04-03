@@ -3,13 +3,13 @@
     {
       "id": 2,
       "productName": "ไก่ทอด",
-      "unitPrice": "90",
+      "unitPrice": "199",
       "thumbnail": "/images/product/2.jpg"
     },
     {
       "id": 4,
       "productName": "เฟรนฟราย",
-      "unitPrice": "120",
+      "unitPrice": "129",
       "thumbnail": "/images/product/4.jpg"
     },
     {
@@ -23,7 +23,68 @@
       "productName": "กาแฟ เฮลตี้ฟู้ด",
       "unitPrice": "140",
       "thumbnail": "/images/product/6.jpg"
+    },
+    {
+      "productName": "ไก่ทอด V.2",
+      "unitPrice": "159",
+      "thumbnail": "/images/product/2.jpg",
+      "id": 7
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "orderedDate": "2020-04-03T14:52:05.195Z",
+      "totalPrice": 469,
+      "orders": [
+        {
+          "product": {
+            "id": 6,
+            "productName": "กาแฟ เฮลตี้ฟู้ด",
+            "unitPrice": "140",
+            "thumbnail": "/images/product/6.jpg"
+          },
+          "quantity": 1,
+          "confirm": false
+        },
+        {
+          "product": {
+            "id": 5,
+            "productName": "เค้ก 3 ชั้น",
+            "unitPrice": "200",
+            "thumbnail": "/images/product/5.jpg"
+          },
+          "quantity": 1,
+          "confirm": false
+        },
+        {
+          "product": {
+            "id": 4,
+            "productName": "เฟรนฟราย",
+            "unitPrice": "129",
+            "thumbnail": "/images/product/4.jpg"
+          },
+          "quantity": 1,
+          "confirm": false
+        }
+      ],
+      "id": 1
+    },
+    {
+      "orderedDate": "2020-04-03T15:24:51.306Z",
+      "totalPrice": 199,
+      "orders": [
+        {
+          "product": {
+            "id": 2,
+            "productName": "ไก่ทอด",
+            "unitPrice": "199",
+            "thumbnail": "/images/product/2.jpg"
+          },
+          "quantity": 1,
+          "confirm": false
+        }
+      ],
+      "id": 2
+    }
+  ]
 }
